@@ -1,4 +1,4 @@
-namespace AcsessControl
+namespace AccessControl.Api
 {
     public class WeatherForecast
     {
