@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Domain", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Application", "..\AccessControl.Application\AccessControl.Application.csproj", "{B2A6C2FE-B190-4C35-8185-B4DD74B6C240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Infra.Data", "..\AccessControl.Infra.Data\AccessControl.Infra.Data.csproj", "{023448C3-14B2-403D-BF36-144697013FAF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Api", "1. Api", "{6259B951-22B7-4ED6-8AA4-F82D1572EA1E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{3D5D07B9-86BD-4DA2-B1FB-A879D3837E01}"
@@ -21,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrasctructure", "4. In
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{DC6731C7-7E70-42FE-9671-DA8B14D198AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Infra.CrossCutting", "..\AccessControl.Infra.CrossCutting\AccessControl.Infra.CrossCutting.csproj", "{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Infra.Crosscutting", "..\AccessControl.Infra.Crosscutting\AccessControl.Infra.Crosscutting.csproj", "{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Infra.Data", "..\AccessControl.Infra.Data\AccessControl.Infra.Data.csproj", "{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +41,14 @@ Global
 		{B2A6C2FE-B190-4C35-8185-B4DD74B6C240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2A6C2FE-B190-4C35-8185-B4DD74B6C240}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A6C2FE-B190-4C35-8185-B4DD74B6C240}.Release|Any CPU.Build.0 = Release|Any CPU
-		{023448C3-14B2-403D-BF36-144697013FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{023448C3-14B2-403D-BF36-144697013FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{023448C3-14B2-403D-BF36-144697013FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{023448C3-14B2-403D-BF36-144697013FAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,7 +57,7 @@ Global
 		{45A84DFB-B848-4A70-B416-2009E4B8905A} = {6259B951-22B7-4ED6-8AA4-F82D1572EA1E}
 		{9EDBDD4B-9663-463A-A5CD-F1A5FFAEE993} = {E5AF9E3D-F85E-42B7-9ABD-7039421F9326}
 		{B2A6C2FE-B190-4C35-8185-B4DD74B6C240} = {3D5D07B9-86BD-4DA2-B1FB-A879D3837E01}
-		{023448C3-14B2-403D-BF36-144697013FAF} = {230E82FF-6163-4FA9-9F0E-E903089E25A6}
-		{649C1F47-96B2-4AF3-B151-5EDA5EB5B0A1} = {230E82FF-6163-4FA9-9F0E-E903089E25A6}
+		{7B7EE953-BB77-4C5F-938A-F5647D8FB1E6} = {230E82FF-6163-4FA9-9F0E-E903089E25A6}
+		{D0C7A5ED-FCB1-4A0B-BDD3-D2F2AC063537} = {230E82FF-6163-4FA9-9F0E-E903089E25A6}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-﻿namespace AccessControl.Infra.CrossCutting
+﻿namespace AccessControl.Infra.Crosscutting
 {
     public class Class1
     {

@@ -7,30 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="AspNetFilters\**" />
-    <Compile Remove="Authentication\**" />
-    <Compile Remove="Commands\**" />
-    <Compile Remove="Events\**" />
-    <Compile Remove="Handlers\**" />
-    <Compile Remove="Interfaces\**" />
-    <Compile Remove="Notifications\**" />
-    <Compile Remove="Services\**" />
-    <EmbeddedResource Remove="AspNetFilters\**" />
-    <EmbeddedResource Remove="Authentication\**" />
-    <EmbeddedResource Remove="Commands\**" />
-    <EmbeddedResource Remove="Events\**" />
-    <EmbeddedResource Remove="Handlers\**" />
-    <EmbeddedResource Remove="Interfaces\**" />
-    <EmbeddedResource Remove="Notifications\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="AspNetFilters\**" />
-    <None Remove="Authentication\**" />
-    <None Remove="Commands\**" />
-    <None Remove="Events\**" />
-    <None Remove="Handlers\**" />
-    <None Remove="Interfaces\**" />
-    <None Remove="Notifications\**" />
-    <None Remove="Services\**" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
 </Project>
