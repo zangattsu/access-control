@@ -1,4 +1,4 @@
-﻿using CinSaude.Domain.Interfaces;
+﻿using AccessControl.Infra.CrossCutting.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
