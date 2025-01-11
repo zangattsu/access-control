@@ -9,22 +9,23 @@ using System.Linq.Expressions;
 
 namespace AccessControl.Infra.Data.Repositories
 {
-    public class RepositoryBase<TEntity, TContext> : NotificationTable, IRepositoryBase<TEntity> where TEntity : Entity<TEntity>
+    public class RepositoryBase<TEntity, TContext> :
+        NotificationTable, IRepositoryBase<TEntity> where TEntity : Entity<TEntity> where TContext : DbContext
     {
         protected readonly DbSet<TEntity> dbSet;
         private bool disposed;
-        private IAppDbContextFactory<TContext> dbContext;
-        protected IAppDbContextFactory<DefaultContext> Db;
+        private readonly IAppDbContextFactory<TContext> _dbContext;
+        protected IAppDbContextFactory<TContext> Db;
 
-        public RepositoryBase(IAppDbContextFactory<DefaultContext> DatabaseContext)
+        public RepositoryBase(IAppDbContextFactory<TContext> DatabaseContext)
         {
             if (DatabaseContext == null)
             {
                 throw new ArgumentNullException(nameof(DatabaseContext), @"DatabaseContext cannot be null");
             }
 
-            dbContext = DatabaseContext;
-            var context = dbContext.CreateDbContext();
+            _dbContext = DatabaseContext;
+            var context = _dbContext.CreateDbContext();
 
             dbSet = context.Set<TEntity>();
             Db = DatabaseContext;
@@ -42,7 +43,8 @@ namespace AccessControl.Infra.Data.Repositories
 
         public async Task<TEntity> GetAsync(Guid id)
         {
-            return await dbSet.FindAsync(id)!;
+            var entity = await dbSet.FindAsync(id);
+            return entity ?? throw new InvalidOperationException("Entity not found");
         }
 
         public IEnumerable<TEntity> GetAll()

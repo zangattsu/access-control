@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AccessControl.Infra.Data.Context
 {
-    public class DefaultContext : DbContext, IDefaultContext<DefaultContext>
+    public class DefaultContext : DbContext, IAppDefaultContext<DefaultContext>
     {
         public DefaultContext(
             DbContextOptions<DefaultContext> options) : base(options)
@@ -16,7 +16,7 @@ namespace AccessControl.Infra.Data.Context
         // public DbSet<YourEntity> YourEntities { get; set; }
     }
 
-    public class FinanceiroContextFactory : CrossCutting.Interfaces.Contexts.IDbContextFactory<DefaultContext>
+    public class FinanceiroContextFactory : IAppDbContextFactory<DefaultContext>
     {
         private readonly IConfiguration _configuration;
 
