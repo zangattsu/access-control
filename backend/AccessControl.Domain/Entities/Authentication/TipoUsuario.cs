@@ -1,6 +1,4 @@
-﻿using AccessControl.Infra.CrossCutting.Models;
-
-namespace AccessControl.Domain.Entities.Authentication
+﻿namespace AccessControl.Domain.Entities.Authentication
 {
     public class TipoUsuario : Entity<TipoUsuario>
     {

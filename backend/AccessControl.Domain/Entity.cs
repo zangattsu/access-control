@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
+using System.Diagnostics.CodeAnalysis;
 
-namespace AccessControl.Infra.CrossCutting.Models
+namespace AccessControl.Domain
 {
     public abstract class Entity<T>
     {
@@ -13,17 +14,17 @@ namespace AccessControl.Infra.CrossCutting.Models
 
         public ValidationResult ValidationResult { get; protected set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals([NotNullWhen(true)] object? obj)
         {
             var compareTo = obj as Entity<T>;
 
             if (ReferenceEquals(this, compareTo)) return true;
             if (ReferenceEquals(null, compareTo)) return false;
 
-            return Id.Equals(compareTo.Id);
+            return Id.Equals(compareTo!.Id); // CS8602: Dereference of a possibly null reference.
         }
 
-        public static bool operator ==(Entity<T> a, Entity<T> b)
+        public static bool operator ==(Entity<T>? a, Entity<T>? b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
                 return true;
@@ -31,12 +32,12 @@ namespace AccessControl.Infra.CrossCutting.Models
             if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
                 return false;
 
-            return a.Equals(b);
+            return a.Equals(b); // CS8602: Dereference of a possibly null reference.
         }
 
-        public static bool operator !=(Entity<T> a, Entity<T> b)
+        public static bool operator !=(Entity<T>? a, Entity<T>? b)
         {
-            return !(a == b);
+            return !(a == b); // CS8603: Possible null reference return.
         }
 
         public override int GetHashCode()

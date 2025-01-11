@@ -1,5 +1,5 @@
-﻿using CinSaude.Domain.Entities.Authentication;
-using CinSaude.Domain.Filters;
+﻿
+using AccessControl.Domain.Entities.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@
     public class UsuarioModel
     {
         public string NomeUsuario { get; set; } = string.Empty;
-        public string SistemaOrigem { get; set; }
+        public string SistemaOrigem { get; set; } = string.Empty;
 
         //public UsuarioModel(string nomeUsuario, string sitemaOrigem)
         //{

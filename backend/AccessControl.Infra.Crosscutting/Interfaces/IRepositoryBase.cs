@@ -43,9 +43,6 @@ namespace AccessControl.Infra.CrossCutting.Interfaces
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
-
-
-
         void Add(TEntity obj);
         TEntity AddWithReturn(TEntity obj);
         void Update(TEntity obj);
