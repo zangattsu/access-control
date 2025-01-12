@@ -1,9 +1,7 @@
-﻿
+﻿using AccessControl.Domain;
 using AccessControl.Infra.CrossCutting.Interfaces;
 using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
-using AccessControl.Infra.CrossCutting.Models;
 using AccessControl.Infra.CrossCutting.Notifications;
-using AccessControl.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -30,6 +28,8 @@ namespace AccessControl.Infra.Data.Repositories
             dbSet = context.Set<TEntity>();
             Db = DatabaseContext;
         }
+
+        public TContext Context => _dbContext.CreateDbContext();
 
         public TEntity Get(Guid id)
         {
@@ -116,7 +116,7 @@ namespace AccessControl.Infra.Data.Repositories
 
             if (disposing)
             {
-                context.Dispose();
+                Context.Dispose();
             }
 
             disposed = true;
