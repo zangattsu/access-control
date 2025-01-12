@@ -1,4 +1,4 @@
-﻿using CinSaude.Domain.Entities;
+﻿using AccessControl.Domain.Entities;
 
 namespace AccessControl.Infra.CrossCutting.Interfaces.Repository
 {

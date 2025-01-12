@@ -24,4 +24,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AccessControl.Domain\AccessControl.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

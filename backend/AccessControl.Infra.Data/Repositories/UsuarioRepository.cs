@@ -1,24 +1,25 @@
-﻿using AspNetCore.IQueryable.Extensions;
-using CinSaude.Data.Context;
-using CinSaude.Domain.Entities.Authentication;
-using CinSaude.Domain.Filters;
-using CinSaude.Domain.Interfaces.Repository;
+﻿using AccessControl.Domain.Entities.Authentication;
+using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
+using AccessControl.Infra.CrossCutting.Interfaces.Repository;
+using AccessControl.Infra.Data.Context;
+using AspNetCore.IQueryable.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccessControl.Infra.Data.Repositories
 {
-    public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
+    public class UsuarioRepository : RepositoryBase<Usuario, DefaultContext>, IUsuarioRepository
     {
-        private readonly CinSaudeContext _context;
-        public UsuarioRepository(CinSaudeContext context) : base(context)
-        {
-            _context = context;
-        }
+        public UsuarioRepository(IAppDbContextFactory<DefaultContext> dbContext) : base(dbContext)
+        { }
 
         public async Task<IList<Usuario>> ObterUsuario(BuscarUsuario filtroUsuario)
         {
-            var usuarios = await _context.Usuarios.AsQueryable().Apply(filtroUsuario).ToListAsync();
+            var usuarios = await Context.Usuarios
+                .AsQueryable()
+                .Apply(filtroUsuario)
+                .ToListAsync();
+
             return usuarios;
         }
     }
