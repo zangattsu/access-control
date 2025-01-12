@@ -1,4 +1,5 @@
-﻿using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
+﻿using AccessControl.Domain.Entities.Authentication;
+using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,13 +8,11 @@ namespace AccessControl.Infra.Data.Context
 {
     public class DefaultContext : DbContext, IAppDefaultContext<DefaultContext>
     {
-        public DefaultContext(
-            DbContextOptions<DefaultContext> options) : base(options)
-        {
-        }
+        public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
+        { }
 
         // Defina seus DbSets aqui
-        // public DbSet<YourEntity> YourEntities { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 
     public class FinanceiroContextFactory : IAppDbContextFactory<DefaultContext>

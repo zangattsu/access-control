@@ -1,15 +1,8 @@
-﻿using CinSaude.Domain.Entities.Authentication;
-using CinSaude.Domain.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using AccessControl.Domain.Entities.Authentication;
 
 namespace AccessControl.Infra.CrossCutting.Interfaces.Repository
 {
     public interface IUsuarioRepository : IRepositoryBase<Usuario>
-    {
-        Task<IList<Usuario>> ObterUsuario(BuscarUsuario filtroUsuario);
-    }
+    { }
 }

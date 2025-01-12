@@ -9,8 +9,8 @@ namespace AccessControl.Infra.Data.Repositories
     public class BuscarUsuario : ICustomQueryable, IQueryPaging, IQuerySort
     {
         [QueryOperator(Operator = WhereOperator.Contains)]
-        public string Nome { get; set; }
-        public string Sistema { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Sistema { get; set; } = string.Empty;
         public int? Limit { get; set; } = 10;
         public int? Offset { get; set; }
         public string? Sort { get; set; }

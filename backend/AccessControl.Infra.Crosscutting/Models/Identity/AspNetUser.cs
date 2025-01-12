@@ -13,21 +13,21 @@ namespace AccessControl.Infra.CrossCutting.Models.Identity
             _accessor = accessor;
         }
 
-        public string Name => _accessor.HttpContext.User.Identity.Name;
+        public string Name => _accessor.HttpContext?.User?.Identity?.Name ?? string.Empty;
 
         public IEnumerable<Claim> GetClaimsIdentity()
         {
-            return _accessor.HttpContext.User.Claims;
+            return _accessor.HttpContext?.User?.Claims ?? Enumerable.Empty<Claim>();
         }
 
         public Guid GetUserId()
         {
-            return IsAuthenticated() ? Guid.Parse(_accessor.HttpContext.User.GetUserId()) : Guid.NewGuid();
+            return IsAuthenticated() && _accessor.HttpContext?.User != null ? Guid.Parse(_accessor.HttpContext.User.GetUserId()) : Guid.NewGuid();
         }
 
         public bool IsAuthenticated()
         {
-            return _accessor.HttpContext.User.Identity.IsAuthenticated;
+            return _accessor.HttpContext?.User?.Identity?.IsAuthenticated ?? false;
         }
     }
 }
