@@ -1,11 +1,38 @@
+using AccessControl.Api.Configurations;
+using AccessControl.Application.Services;
+using AccessControl.Infra.CrossCutting.Interfaces;
+using AccessControl.Infra.CrossCutting.IoC;
+using AccessControl.Infra.CrossCutting.Models.Email;
+using AccessControl.Infra.CrossCutting.Models.Identity;
+using AccessControl.Infra.Data;
+using AccessControl.Infra.Data.Context;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<IdentityContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+
+DomainInjection.Initialize(builder.Services);
+
+builder.Services.AddTransient<IMailService, MailService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<DefaultContext>();
 
 var app = builder.Build();
 
