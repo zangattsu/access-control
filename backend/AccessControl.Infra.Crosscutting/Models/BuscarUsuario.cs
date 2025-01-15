@@ -4,7 +4,7 @@ using AspNetCore.IQueryable.Extensions.Filter;
 using AspNetCore.IQueryable.Extensions.Pagination;
 using AspNetCore.IQueryable.Extensions.Sort;
 
-namespace AccessControl.Infra.Data.Repositories
+namespace AccessControl.Infra.CrossCutting.Models
 {
     public class BuscarUsuario : ICustomQueryable, IQueryPaging, IQuerySort
     {
