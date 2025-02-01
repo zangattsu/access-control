@@ -1,6 +1,7 @@
 ﻿using AccessControl.Domain.Entities.Authentication;
 using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
 using AccessControl.Infra.CrossCutting.Interfaces.Repository;
+using AccessControl.Infra.CrossCutting.Models;
 using AccessControl.Infra.Data.Context;
 using AspNetCore.IQueryable.Extensions;
 using Microsoft.EntityFrameworkCore;
