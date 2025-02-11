@@ -2,14 +2,15 @@
 using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AccessControl.Infra.Data.Context
 {
     public class DefaultContext : DbContext, IAppDefaultContext<DefaultContext>
     {
         public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
-        { }
+        {
+            Usuarios = Set<Usuario>();
+        }
 
         // Defina seus DbSets aqui
         public DbSet<Usuario> Usuarios { get; set; }

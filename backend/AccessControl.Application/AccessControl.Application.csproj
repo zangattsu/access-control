@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AccessControl.Infra.Crosscutting\AccessControl.Infra.CrossCutting.csproj" />
+    <ProjectReference Include="..\AccessControl.Infra.Data\AccessControl.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
