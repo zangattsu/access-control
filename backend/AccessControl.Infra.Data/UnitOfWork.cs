@@ -6,6 +6,7 @@ namespace AccessControl.Infra.Data
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DefaultContext _context;
+        private bool _disposed = false;
 
         public UnitOfWork(DefaultContext context)
         {
@@ -17,9 +18,22 @@ namespace AccessControl.Infra.Data
             return _context.SaveChanges() > 0;
         }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+                _disposed = true;
+            }
+        }
+
         public void Dispose()
         {
-            _context.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

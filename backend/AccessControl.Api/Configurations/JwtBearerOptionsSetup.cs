@@ -17,14 +17,14 @@ namespace AccessControl.Api.Configurations
             new ConfigureFromConfigurationOptions<JwtOptions>(configuration.GetSection("JwtTokenOptions"))
                 .Configure(jwtOptions.Value);
 
-            _jwtOptions = jwtOptions.Value ?? throw new ArgumentNullException(nameof(jwtOptions.Value));
+            _jwtOptions = jwtOptions.Value ?? throw new ArgumentNullException(nameof(jwtOptions.Value).ToString());
         }
 
         public void Configure(JwtBearerOptions options)
         {
             if (string.IsNullOrEmpty(_jwtOptions.SecretKey))
             {
-                throw new ArgumentNullException(nameof(_jwtOptions.SecretKey), "SecretKey cannot be null or empty.");
+                throw new ArgumentNullException(nameof(_jwtOptions.SecretKey).ToString(), "SecretKey cannot be null or empty.");
             }
 
             options.TokenValidationParameters = new()

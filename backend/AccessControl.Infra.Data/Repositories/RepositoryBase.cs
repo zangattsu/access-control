@@ -51,7 +51,6 @@ namespace AccessControl.Infra.Data.Repositories
         {
             IQueryable<TEntity> query = dbSet;
             return query.ToList();
-            //return dbSet.ToList();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
