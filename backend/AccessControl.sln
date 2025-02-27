@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessControl.Infra.Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{205D9CB9-3B36-4565-8A2B-36326401ABE9}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AccessControl.Web", "..\frontend\AccessControl.Web\AccessControl.Web.esproj", "{E3A3B2C6-BDD0-C5FA-C685-B4F4A07800EB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
