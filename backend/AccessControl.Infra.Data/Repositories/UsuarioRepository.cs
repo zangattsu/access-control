@@ -8,12 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AccessControl.Infra.Data.Repositories
 {
-    public class UsuarioRepository : RepositoryBase<Usuario, DefaultContext>, IUsuarioRepository
+    public class UsuarioRepository : RepositoryBase<User, DefaultContext>, IUsuarioRepository
     {
         public UsuarioRepository(IAppDbContextFactory<DefaultContext> dbContext) : base(dbContext)
         { }
 
-        public async Task<IList<Usuario>> ObterUsuario(BuscarUsuario filtroUsuario)
+        public async Task<IList<User>> ObterUsuario(BuscarUsuario filtroUsuario)
         {
             var usuarios = await Context.Usuarios
                 .AsQueryable()

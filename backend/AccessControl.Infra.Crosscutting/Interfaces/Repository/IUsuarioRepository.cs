@@ -4,8 +4,8 @@ using AccessControl.Infra.CrossCutting.Models;
 
 namespace AccessControl.Infra.CrossCutting.Interfaces.Repository
 {
-    public interface IUsuarioRepository : IRepositoryBase<Usuario>
+    public interface IUsuarioRepository : IRepositoryBase<User>
     {
-        Task<IList<Usuario>> ObterUsuario(BuscarUsuario filtroUsuario);
+        Task<IList<User>> ObterUsuario(BuscarUsuario filtroUsuario);
     }
 }
