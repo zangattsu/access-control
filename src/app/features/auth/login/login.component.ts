@@ -16,7 +16,10 @@ export class LoginComponent {
   
   isLoading = false;
   
-  constructor() { }  
+  constructor() { 
+    // Mantendo a opção de redirecionar diretamente para o Okta
+    this.authService.login();
+  }  
  
   loginWithOkta() {
     // Mantendo a opção de redirecionar diretamente para o Okta

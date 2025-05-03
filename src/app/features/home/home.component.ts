@@ -8,9 +8,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  public authService = inject(AuthService);
-
-  
+  public authService = inject(AuthService);  
   
   logout() {
     // Mantendo a opção de redirecionar diretamente para o Okta

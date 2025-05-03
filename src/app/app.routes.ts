@@ -7,7 +7,7 @@ import { CallbackComponent } from './features/auth/login/callback/callback.compo
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [authGuard] },
-  //{ path: 'login', component: LoginComponent },  // Formulário personalizado
+  { path: 'login', component: LoginComponent },  // Formulário personalizado
   { path: 'login-widget', component: OktaWidgetComponent },  // Widget do Okta
   { path: 'login/callback', component: CallbackComponent },
   // Outras rotas protegidas
