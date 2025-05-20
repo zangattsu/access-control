@@ -9,11 +9,11 @@ namespace AccessControl.Infra.Data.Context
     {
         public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
         {
-            Usuarios = Set<Usuario>();
+            Usuarios = Set<User>();
         }
 
         // Defina seus DbSets aqui
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<User> Usuarios { get; set; }
     }
 
     public class FinanceiroContextFactory : IAppDbContextFactory<DefaultContext>

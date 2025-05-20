@@ -5,15 +5,15 @@ namespace AccessControl.Infra.CrossCutting.Authentication
 {
     public class SigningCredentialsConfiguration
     {
-        private JwtOptions _jwtOptions;
-
         public SigningCredentials SigningCredentials { get; }
 
         public SigningCredentialsConfiguration(JwtOptions jwtOptions)
         {
-            _jwtOptions = jwtOptions;
+            _ = jwtOptions.SecretKey ?? 
+                throw new ArgumentNullException(nameof(jwtOptions.SecretKey).ToString().ToString(), "SecretKey cannot be null or empty.");
+
             SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_jwtOptions.SecretKey.ToString())),
+                new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtOptions.SecretKey.ToString())),
                 SecurityAlgorithms.HmacSha256Signature);
         }
     }

@@ -17,8 +17,7 @@ namespace AccessControl.Api.Configurations
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             var tokenConfigurations = new JwtOptions();
-            var secretKey = tokenConfigurations.SecretKey ?? throw new ArgumentNullException(nameof(tokenConfigurations.SecretKey));
-            var key = Encoding.ASCII.GetBytes(secretKey);
+
             new ConfigureFromConfigurationOptions<JwtOptions>(configuration.GetSection("JwtTokenOptions"))
                 .Configure(tokenConfigurations);
 
