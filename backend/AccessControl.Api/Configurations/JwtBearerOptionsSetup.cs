@@ -22,22 +22,20 @@ namespace AccessControl.Api.Configurations
 
         public void Configure(JwtBearerOptions options)
         {
-            if (string.IsNullOrEmpty(_jwtOptions.SecretKey))
-            {
-                throw new ArgumentNullException(nameof(_jwtOptions.SecretKey).ToString(), "SecretKey cannot be null or empty.");
-            }
-
             options.TokenValidationParameters = new()
             {
                 ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
                 ValidIssuer = _jwtOptions.Issuer,
+                ValidateAudience = true,
                 ValidAudience = _jwtOptions.Audience,
-                IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(_jwtOptions.SecretKey))
+                ValidateLifetime = true,
             };
+
+            // Defina o endereço do operador de tokens do Okta (issuer)
+            options.Authority = _jwtOptions.Issuer;
+
+            // Defina o audience (recursos da API) conforme configurado no Okta
+            options.Audience = _jwtOptions.Audience;
         }
     }
 }

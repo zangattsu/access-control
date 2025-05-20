@@ -13,13 +13,13 @@ namespace AccessControl.Domain.Tests.Entities
     [Trait("Entities", "User")]
     public sealed class UserTests
     {
-        private readonly Faker _faker = new("pt_BR");
-        private readonly ITestOutputHelper _testOutputHelper;
+        //private readonly Faker _faker = new("pt_BR");
+        //private readonly ITestOutputHelper _testOutputHelper;
 
-        public UserTests(ITestOutputHelper testOutputHelper)
-        {
-            _testOutputHelper = testOutputHelper;
-        }
+        //public UserTests(ITestOutputHelper testOutputHelper)
+        //{
+        //    _testOutputHelper = testOutputHelper;
+        //}
 
         [Theory]
         [InlineData("Usuario 1")]
