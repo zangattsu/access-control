@@ -14,6 +14,9 @@
 
   <ItemGroup>
     <Compile Remove="Interfaces\IEventStore.cs" />
+    <Compile Remove="Interfaces\Repository\IDominioRepository.cs" />
+    <Compile Remove="Interfaces\Repository\ISubdominioRepository.cs" />
+    <Compile Remove="Interfaces\Repository\ITipoUsuarioRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
