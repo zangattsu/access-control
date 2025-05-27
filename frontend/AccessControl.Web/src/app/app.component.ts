@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavComponent } from './shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'AccessControl.Web';
+  title = 'okta-access-control';
 }

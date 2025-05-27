@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccessControl.Infra.Data.Mapping
 {
-    public class UsuarioMap
+    public class UserMap
     {
     }
 }
