@@ -18,8 +18,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer();
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//    .AddJwtBearer();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    // Defina o endereço do operador de tokens do Okta (issuer)
+    options.Authority = "https://dev-21512408.okta.com/oauth2/default";
+    options.Audience = "api://default";
+    options.Events = new JwtBearerEvents
+    {
+        OnAuthenticationFailed = context =>
+        {
+            Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+            return Task.CompletedTask;
+        }
+    };
+});
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>()
@@ -33,8 +48,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Progr
 builder.Services.AddDbContext<DefaultContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.ConfigureOptions<JwtOptionsSetup>();
-builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+//builder.Services.ConfigureOptions<JwtOptionsSetup>();
+//builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 builder.Services.AddCors(options =>
@@ -48,8 +63,6 @@ builder.Services.AddCors(options =>
                   .AllowCredentials();
         });
 });
-
-// Depois de builder.Build() ou no Configure:
 
 DomainInjection.Initialize(builder.Services);
 
