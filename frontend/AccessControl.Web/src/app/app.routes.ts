@@ -10,11 +10,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },  // Formulário personalizado
   { path: 'login-widget', component: OktaWidgetComponent },  // Widget do Okta
   { path: 'login/callback', component: CallbackComponent },
-  // Outras rotas protegidas
-  // { 
-  //   path: 'dashboard', 
-  //   loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
-  //   canActivate: [authGuard]
-  // },
+  { 
+    path: 'dashboard', 
+    loadComponent: () => import('./features/dashboard/dashboard-view/dashboard-view.component').then(m => m.DashboardViewComponent),
+    canActivate: [authGuard]
+  },
   { path: '**', redirectTo: '' }
 ];
