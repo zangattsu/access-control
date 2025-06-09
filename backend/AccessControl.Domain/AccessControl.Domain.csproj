@@ -13,13 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccessControl.Infra.CrossCutting.Common\AccessControl.Infra.CrossCutting.Common.csproj" />
   </ItemGroup>
 
 </Project>
