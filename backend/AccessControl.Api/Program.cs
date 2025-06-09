@@ -1,4 +1,3 @@
-using AccessControl.Api.Configurations;
 using AccessControl.Application.Services;
 using AccessControl.Infra.CrossCutting.Interfaces;
 using AccessControl.Infra.CrossCutting.IoC;
@@ -7,8 +6,11 @@ using AccessControl.Infra.CrossCutting.Models.Identity;
 using AccessControl.Infra.Data;
 using AccessControl.Infra.Data.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,25 +20,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//    .AddJwtBearer();
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    // Defina o endereço do operador de tokens do Okta (issuer)
-    options.Authority = "https://dev-21512408.okta.com/oauth2/default";
-    options.Audience = "api://default";
-    options.Events = new JwtBearerEvents
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        OnAuthenticationFailed = context =>
-        {
-            Console.WriteLine($"Authentication failed: {context.Exception.Message}");
-            return Task.CompletedTask;
-        }
-    };
-});
+        options.Authority = "https://dev-21512408.okta.com/oauth2/default";
+        options.Audience = "api://default";
+    });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorizationBuilder()
+    .SetDefaultPolicy(new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
+        .RequireAuthenticatedUser()
+        .Build());
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityContext>()
