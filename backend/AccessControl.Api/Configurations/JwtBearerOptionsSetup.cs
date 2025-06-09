@@ -25,10 +25,10 @@ namespace AccessControl.Api.Configurations
             options.TokenValidationParameters = new()
             {
                 ValidateIssuer = true,
-                ValidIssuer = _jwtOptions.Issuer,
                 ValidateAudience = true,
-                ValidAudience = _jwtOptions.Audience,
                 ValidateLifetime = true,
+                ValidIssuer = _jwtOptions.Issuer,
+                ValidAudience = _jwtOptions.Audience,
             };
 
             // Defina o endereço do operador de tokens do Okta (issuer)
