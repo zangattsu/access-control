@@ -1,6 +1,6 @@
 ﻿using AccessControl.Infra.CrossCutting.Authentication;
 using AccessControl.Infra.CrossCutting.Models.Identity;
-using AccessControl.ORM.Context;
+using AccessControl.ORM;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

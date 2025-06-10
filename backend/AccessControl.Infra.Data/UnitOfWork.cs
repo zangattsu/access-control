@@ -1,5 +1,4 @@
 ﻿using AccessControl.Infra.CrossCutting.Interfaces;
-using AccessControl.ORM.Context;
 
 namespace AccessControl.ORM
 {

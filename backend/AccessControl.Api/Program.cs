@@ -4,7 +4,6 @@ using AccessControl.Infra.CrossCutting.IoC;
 using AccessControl.Infra.CrossCutting.Models.Email;
 using AccessControl.Infra.CrossCutting.Models.Identity;
 using AccessControl.ORM;
-using AccessControl.ORM.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

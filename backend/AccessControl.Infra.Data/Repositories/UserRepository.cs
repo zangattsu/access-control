@@ -1,6 +1,5 @@
 ﻿using AccessControl.Domain.Entities;
 using AccessControl.Domain.Repositories;
-using AccessControl.ORM.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccessControl.ORM.Repositories;

@@ -3,7 +3,7 @@ using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace AccessControl.ORM.Context
+namespace AccessControl.ORM
 {
     public class DefaultContext : DbContext, IAppDefaultContext<DefaultContext>
     {
