@@ -1,5 +1,5 @@
 ﻿
-using AccessControl.Domain.Entities.Authentication;
+using AccessControl.Domain.Entities;
 using AccessControl.Infra.CrossCutting.Models;
 
 namespace AccessControl.Infra.CrossCutting.Interfaces.Repository

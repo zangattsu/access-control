@@ -1,7 +1,7 @@
 ﻿using AccessControl.Infra.CrossCutting.Interfaces;
-using AccessControl.Infra.Data.Context;
+using AccessControl.ORM.Context;
 
-namespace AccessControl.Infra.Data
+namespace AccessControl.ORM
 {
     public class UnitOfWork : IUnitOfWork
     {

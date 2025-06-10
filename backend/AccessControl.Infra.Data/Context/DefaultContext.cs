@@ -1,19 +1,19 @@
-﻿using AccessControl.Domain.Entities.Authentication;
+﻿using AccessControl.Domain.Entities;
 using AccessControl.Infra.CrossCutting.Interfaces.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace AccessControl.Infra.Data.Context
+namespace AccessControl.ORM.Context
 {
     public class DefaultContext : DbContext, IAppDefaultContext<DefaultContext>
     {
         public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
         {
-            Usuarios = Set<User>();
+            Users = Set<User>();
         }
 
         // Defina seus DbSets aqui
-        public DbSet<User> Usuarios { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 
     public class FinanceiroContextFactory : IAppDbContextFactory<DefaultContext>

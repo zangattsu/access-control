@@ -5,7 +5,7 @@ using AccessControl.Infra.CrossCutting.Notifications;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace AccessControl.Infra.Data.Repositories
+namespace AccessControl.ORM.Repositories
 {
     public class RepositoryBase<TEntity, TContext> :
         NotificationTable, IRepositoryBase<TEntity> where TEntity : Entity<TEntity> where TContext : DbContext

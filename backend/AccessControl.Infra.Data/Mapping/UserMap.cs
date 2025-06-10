@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccessControl.Infra.Data.Mapping
+namespace AccessControl.ORM.Mapping
 {
     public class UserMap
     {

@@ -15,7 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AccessControl.Application\AccessControl.Application.csproj" />
     <ProjectReference Include="..\AccessControl.Infra.Crosscutting\AccessControl.Infra.CrossCutting.csproj" />
-    <ProjectReference Include="..\AccessControl.Infra.Data\AccessControl.Infra.Data.csproj" />
+    <ProjectReference Include="..\AccessControl.Infra.Data\AccessControl.ORM.csproj" />
   </ItemGroup>
 
 </Project>

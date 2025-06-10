@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace AccessControl.Infra.Data.Context
+namespace AccessControl.ORM.Context
 {
     public class IdentityContext : IdentityDbContext<ApplicationUser>
     {
